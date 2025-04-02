@@ -20,7 +20,7 @@ class Product
     public function getById($id)
     {
         $stmt = $this->pdo->prepare("SELECT p.*, c.category_name FROM product p 
-        LEFT JOIN category c ON p.category_id = c.category_id WHRE p.product_id=?");
+        LEFT JOIN category c ON p.category_id = c.category_id WHERE p.product_id=?");
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
@@ -54,7 +54,7 @@ class Product
 
     public function delete($id)
     {
-        $stmt = $this->pdo->prepare('');
+        $stmt = $this->pdo->prepare('DELETE FROM product WHERE product_id=?');
         return $stmt->execute([$id]);
     }
 
