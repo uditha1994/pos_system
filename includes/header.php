@@ -21,11 +21,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link <?= basename($_SERVER['REQUEST_URI']) === '/' ? 'active' : '' ?>" href="/">
-                            <i class="fas fa-tachometer-alt me-1"></i> Dashboard
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], 'categories') !== false ? 'active' : '' ?>"
                             href="/categories">
@@ -51,19 +47,31 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-user-circle me-1"></i> Admin
-                        </a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-sign-out-alt me-1"></i> Logout
-                        </a>
-                    </li>
+                <ul class="navbar-nav ms-auto">
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown">
+                                <i class="fas fa-user-circle me-1"></i>
+                                <?= htmlspecialchars($_SESSION['full_name']) ?> (<?= $_SESSION['role'] ?>)
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item"
+                                        href="<?= BASE_PATH ?>/users/edit/<?= $_SESSION['user_id'] ?>">My Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="<?= BASE_PATH ?>/logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= BASE_PATH ?>/login">Login</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
+        </div>
         </div>
     </nav>
 

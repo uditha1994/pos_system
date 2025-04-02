@@ -1,4 +1,6 @@
 <?php require_once __DIR__ . '/../includes/header.php'; ?>
+<?php require_once __DIR__ . '/../includes/auth.php'; ?>
+<?php authenticateUser(); ?>
 
 <div class="container">
     <h1 class="my-4">POS System Dashboard</h1>

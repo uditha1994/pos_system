@@ -17,6 +17,8 @@ require_once __DIR__ . '/controllers/ProductController.php';
 require_once __DIR__ . '/controllers/CustomerController.php';
 require_once __DIR__ . '/controllers/SupplierController.php';
 require_once __DIR__ . '/controllers/DashboardController.php';
+require_once __DIR__ . '/controllers/AuthController.php';
+require_once __DIR__ . '/controllers/UserController.php';
 
 try {
 
@@ -185,6 +187,59 @@ try {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $supplierController = new SupplierController();
                 $supplierController->delete($matches[1]);
+            }
+            break;
+
+        // Auth routes
+        case '/login':
+            $authController = new AuthController();
+            $authController->login();
+            break;
+
+        case '/authenticate':
+            $authController = new AuthController();
+            $authController->authenticate();
+            break;
+
+        case '/logout':
+            $authController = new AuthController();
+            $authController->logout();
+            break;
+
+        // User routes
+        case '/users':
+            $userController = new UserController();
+            $userController->index();
+            break;
+
+        case '/users/create':
+            $userController = new UserController();
+            $userController->create();
+            break;
+
+        case '/users/store':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $userController = new UserController();
+                $userController->store();
+            }
+            break;
+
+        case (preg_match('/^\/users\/edit\/(\d+)$/', $request, $matches) ? true : false):
+            $userController = new UserController();
+            $userController->edit($matches[1]);
+            break;
+
+        case (preg_match('/^\/users\/update\/(\d+)$/', $request, $matches) ? true : false):
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $userController = new UserController();
+                $userController->update($matches[1]);
+            }
+            break;
+
+        case (preg_match('/^\/users\/delete\/(\d+)$/', $request, $matches) ? true : false):
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $userController = new UserController();
+                $userController->delete($matches[1]);
             }
             break;
 
