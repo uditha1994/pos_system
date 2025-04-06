@@ -19,6 +19,8 @@ require_once __DIR__ . '/controllers/SupplierController.php';
 require_once __DIR__ . '/controllers/DashboardController.php';
 require_once __DIR__ . '/controllers/AuthController.php';
 require_once __DIR__ . '/controllers/UserController.php';
+require_once __DIR__ . '/controllers/InventoryController.php';
+require_once __DIR__ . '/controllers/OrderController.php';
 
 try {
 
@@ -241,6 +243,76 @@ try {
                 $userController = new UserController();
                 $userController->delete($matches[1]);
             }
+            break;
+
+        // Order routes
+        case '/orders':
+            $orderController = new OrderController();
+            $orderController->index();
+            break;
+
+        case '/orders/create':
+            $orderController = new OrderController();
+            $orderController->create();
+            break;
+
+        case '/orders/store':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $orderController = new OrderController();
+                $orderController->store();
+            }
+            break;
+
+        case (preg_match('/^\/orders\/view\/(\d+)$/', $request, $matches) ? true : false):
+            $orderController = new OrderController();
+            $orderController->view($matches[1]);
+            break;
+
+        case (preg_match('/^\/orders\/generate-pdf\/(\d+)$/', $request, $matches) ? true : false):
+            $orderController = new OrderController();
+            $orderController->generatePdf($matches[1]);
+            break;
+
+        // Inventory routes
+        case '/inventory':
+            $inventoryController = new InventoryController();
+            $inventoryController->index();
+            break;
+
+        case '/inventory/create':
+            $inventoryController = new InventoryController();
+            $inventoryController->create();
+            break;
+
+        case '/inventory/store':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $inventoryController = new InventoryController();
+                $inventoryController->store();
+            }
+            break;
+
+        case (preg_match('/^\/inventory\/edit\/(\d+)$/', $request, $matches) ? true : false):
+            $inventoryController = new InventoryController();
+            $inventoryController->edit($matches[1]);
+            break;
+
+        case (preg_match('/^\/inventory\/update\/(\d+)$/', $request, $matches) ? true : false):
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $inventoryController = new InventoryController();
+                $inventoryController->update($matches[1]);
+            }
+            break;
+
+        case (preg_match('/^\/inventory\/delete\/(\d+)$/', $request, $matches) ? true : false):
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $inventoryController = new InventoryController();
+                $inventoryController->delete($matches[1]);
+            }
+            break;
+
+        case '/inventory/stock-report':
+            $inventoryController = new InventoryController();
+            $inventoryController->stockReport();
             break;
 
         default:

@@ -46,6 +46,12 @@
                             <i class="fas fa-truck me-1"></i> Suppliers
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/inventory') !== false ? 'active' : '' ?>"
+                            href="<?= BASE_PATH ?>/inventory">
+                            <i class="fas fa-boxes me-1"></i> Inventory
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <?php if (isset($_SESSION['user_id'])): ?>
