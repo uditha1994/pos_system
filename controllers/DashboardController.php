@@ -11,6 +11,7 @@ class DashboardController
 
     public function index()
     {
+
         // Get counts for dashboard cards
         $categoryCount = $this->pdo->query("SELECT COUNT(*) FROM category")->fetchColumn();
         $productCount = $this->pdo->query("SELECT COUNT(*) FROM product")->fetchColumn();
