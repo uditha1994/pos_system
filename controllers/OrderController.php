@@ -17,12 +17,14 @@ class OrderController
 
     public function index()
     {
+        $title = 'Orders';
         $orders = $this->orderModel->getAll();
         require_once __DIR__ . '/../views/orders/index.php';
     }
 
     public function create()
     {
+        $title = 'New Order';
         $customers = $this->customerModel->getAll();
         $inventoryItems = $this->orderModel->getAvailableInventory();
         require_once __DIR__ . '/../views/orders/create.php';
@@ -79,6 +81,7 @@ class OrderController
 
     public function view($orderId)
     {
+        $title = 'Orders';
         $order = $this->orderModel->getById($orderId);
         $items = $this->orderModel->getItems($orderId);
 

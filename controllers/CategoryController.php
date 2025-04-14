@@ -20,12 +20,14 @@ class CategoryController
 
     public function index()
     {
+        $title = 'Categories';
         $categories = $this->categoryModel->getAll();
         require_once __DIR__ . '/../views/categories/index.php';
     }
 
     public function create()
     {
+        $title = 'New Category';
         require_once __DIR__ . '/../views/categories/create.php';
     }
 
@@ -53,6 +55,7 @@ class CategoryController
 
     public function edit($id)
     {
+        $title = 'Edit Category';
         $category = $this->categoryModel->getById($id);
         if (!$category) {
             header('Location: /categories');

@@ -14,6 +14,7 @@ class ReportController
 
     public function salesReport()
     {
+        $title = 'Sales Report';
         $startDate = $_GET['start_date'] ?? date('Y-m-01');
         $endDate = $_GET['end_date'] ?? date('Y-m-t');
 
@@ -93,6 +94,7 @@ class ReportController
 
     public function inventoryReport()
     {
+        $title = 'Inventory Report';
         $stockData = $this->reportModel->getInventoryStock();
         $lowStockItems = $this->reportModel->getLowStockItems();
 
@@ -157,6 +159,7 @@ class ReportController
 
     public function customerReport()
     {
+        $title = 'Customer Report';
         $customerId = $_GET['customer_id'] ?? null;
         $customers = $this->reportModel->getCustomerPurchases($customerId);
 
@@ -239,6 +242,7 @@ class ReportController
 
     public function productPerformance()
     {
+        $title = 'Product Performance Report';
         $startDate = $_GET['start_date'] ?? date('Y-m-01');
         $endDate = $_GET['end_date'] ?? date('Y-m-t');
 
@@ -298,6 +302,7 @@ class ReportController
 
     public function supplierReport()
     {
+        $title = 'Supplier Report';
         $supplierId = $_GET['supplier_id'] ?? null;
         $suppliers = $this->reportModel->getSupplierPerformance();
 

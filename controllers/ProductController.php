@@ -13,12 +13,14 @@ class ProductController
 
     public function index()
     {
+        $title = 'Products';
         $products = $this->productModel->getAll();
         require_once __DIR__ . "/../views/products/index.php";
     }
 
     public function create()
     {
+        $title = 'New Product';
         $categories = $this->productModel->getCategories();
         require_once __DIR__ . "/../views/products/create.php";
     }
@@ -48,6 +50,7 @@ class ProductController
 
     public function edit($id)
     {
+        $title = 'Edit Product';
         $product = $this->productModel->getById($id);
         $categories = $this->productModel->getCategories();
 

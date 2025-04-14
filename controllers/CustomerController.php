@@ -13,12 +13,14 @@ class CustomerController
 
     public function index()
     {
+        $title = 'Customers';
         $customers = $this->customerModel->getAll();
         require_once __DIR__ . '/../views/customers/index.php';
     }
 
     public function create()
     {
+        $title = 'New Customer';
         require_once __DIR__ . '/../views/customers/create.php';
     }
 
@@ -44,6 +46,7 @@ class CustomerController
 
     public function edit($id)
     {
+        $title = 'Edit Customer';
         $customer = $this->customerModel->getById($id);
         if (!$customer) {
             $_SESSION['error'] = 'Customer not found';

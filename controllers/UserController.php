@@ -13,12 +13,14 @@ class UserController
 
     public function index()
     {
+        $title = 'Users';
         $users = $this->userModel->getAll();
         require_once __DIR__ . '/../views/users/index.php';
     }
 
     public function create()
     {
+        $title = 'New Users';
         require_once __DIR__ . '/../views/users/create.php';
     }
 
@@ -56,6 +58,7 @@ class UserController
 
     public function edit($id)
     {
+        $title = 'Edit Users';
         $user = $this->userModel->getById($id);
         if (!$user) {
             $_SESSION['error'] = 'User not found';

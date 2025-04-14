@@ -13,12 +13,14 @@ class SupplierController
 
     public function index()
     {
+        $title = 'Suppliers';
         $suppliers = $this->supplierModel->getAll();
         require_once __DIR__ . '/../views/suppliers/index.php';
     }
 
     public function create()
     {
+        $title = 'New Suppliers';
         require_once __DIR__ . '/../views/suppliers/create.php';
     }
 
@@ -45,6 +47,7 @@ class SupplierController
 
     public function edit($id)
     {
+        $title = 'Edit Suppliers';
         $supplier = $this->supplierModel->getById($id);
         if (!$supplier) {
             $_SESSION['error'] = 'Supplier not found';

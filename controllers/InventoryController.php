@@ -13,6 +13,7 @@ class InventoryController
 
     public function index()
     {
+        $title = 'Inventories';
         $search = $_GET['search'] ?? '';
         $inventoryItems = $this->inventoryModel->getAll($search);
         require_once __DIR__ . '/../views/inventory/index.php';
@@ -20,6 +21,7 @@ class InventoryController
 
     public function create()
     {
+        $title = 'New Inventory';
         $products = $this->inventoryModel->getProducts();
         $suppliers = $this->inventoryModel->getSuppliers();
         require_once __DIR__ . '/../views/inventory/create.php';
@@ -51,6 +53,7 @@ class InventoryController
 
     public function edit($inventoryId)
     {
+        $title = 'Edit Inventory';
         $inventoryItem = $this->inventoryModel->getById($inventoryId);
         if (!$inventoryItem) {
             $_SESSION['error'] = 'Inventory item not found';
