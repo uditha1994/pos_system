@@ -30,7 +30,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/products') !== false ? 'active' : '' ?>"
-                            href="<?= BASE_PATH ?>/products">
+                            href="<?php echo BASE_PATH; ?>/products">
                             <i class="fas fa-boxes me-1"></i> Products
                         </a>
                     </li>

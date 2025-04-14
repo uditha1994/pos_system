@@ -7,7 +7,11 @@
             <input type="text" name="product_id" class="form-control me-2" placeholder="Search by Product ID"
                 value="<?= htmlspecialchars($_GET['product_id'] ?? '') ?>">
             <button type="submit" class="btn btn-primary me-2">Search</button>
-            <a href="<?= BASE_PATH ?>/inventory/stock-report" class="btn btn-secondary">Reset</a>
+            <a href="<?= BASE_PATH ?>/inventory/stock-report" class="btn btn-secondary me-2">Reset</a>
+            <a target="_blank" href="<?= BASE_PATH ?>/inventory/generate-stock-pdf?<?= http_build_query($_GET) ?>"
+                class="btn btn-danger">
+                <i class="fas fa-file-pdf"></i> Export PDF
+            </a>
         </form>
     </div>
 </div>

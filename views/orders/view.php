@@ -54,7 +54,7 @@
                         <?php foreach ($items as $item): ?>
                             <tr>
                                 <td><?= htmlspecialchars($item['product_name']) ?></td>
-                                <td><?= number_format($item['price'], 2) ?></td>
+                                <td><?= number_format($item['sell_price'], 2) ?></td>
                                 <td><?= $item['qty'] ?></td>
                                 <td><?= number_format($item['sub_total'], 2) ?></td>
                             </tr>

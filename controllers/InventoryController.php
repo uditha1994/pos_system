@@ -100,7 +100,49 @@ class InventoryController
     {
         $productId = $_GET['product_id'] ?? null;
         $stockItems = $this->inventoryModel->getAvailableStock($productId);
-        require_once __DIR__ . '/../views/inventory/stock_report.php';
+
+        require_once __DIR__ . '/../includes/fpdf/fpdf.php';
+
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(0, 10, 'Stock Report', 0, 1, 'C');
+
+        // Add filter info if searching by product
+        if ($productId) {
+            $pdf->SetFont('Arial', '', 10);
+            $pdf->Cell(0, 10, 'Filtered by Product ID: ' . $productId, 0, 1);
+            $pdf->Ln(5);
+        }
+
+        // Table header
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(30, 10, 'Product ID', 1);
+        $pdf->Cell(70, 10, 'Product Name', 1);
+        $pdf->Cell(40, 10, 'Available Qty', 1);
+        $pdf->Cell(40, 10, 'Sell Price', 1);
+        $pdf->Ln();
+
+        // Table data
+        $pdf->SetFont('Arial', '', 10);
+        if (empty($stockItems)) {
+            $pdf->Cell(0, 10, 'No stock items found', 1, 1, 'C');
+        } else {
+            foreach ($stockItems as $item) {
+                $pdf->Cell(30, 10, $item['product_id'], 1);
+                $pdf->Cell(70, 10, $item['product_name'], 1);
+                $pdf->Cell(40, 10, $item['total_quantity'], 1);
+                $pdf->Cell(40, 10, number_format($item['sell_price'] ?? 0, 2), 1);
+                $pdf->Ln();
+            }
+        }
+
+        // Footer with date
+        $pdf->SetY(-15);
+        $pdf->SetFont('Arial', 'I', 8);
+        $pdf->Cell(0, 10, 'Generated on: ' . date('Y-m-d H:i:s'), 0, 0, 'R');
+
+        $pdf->Output('I', 'stock_report_' . date('Y-m-d') . '.pdf');
     }
 }
 ?>

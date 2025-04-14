@@ -21,6 +21,7 @@ require_once __DIR__ . '/controllers/AuthController.php';
 require_once __DIR__ . '/controllers/UserController.php';
 require_once __DIR__ . '/controllers/InventoryController.php';
 require_once __DIR__ . '/controllers/OrderController.php';
+require_once __DIR__ . '/controllers/ReportController.php';
 
 try {
 
@@ -313,6 +314,58 @@ try {
         case '/inventory/stock-report':
             $inventoryController = new InventoryController();
             $inventoryController->stockReport();
+            break;
+
+
+        // Report routes
+        case '/reports/sales':
+            $reportController = new ReportController();
+            $reportController->salesReport();
+            break;
+
+        case '/reports/generateSalesPDF':
+            $reportController = new ReportController();
+            $reportController->generateSalesPDF();
+            break;
+
+        case '/reports/inventory':
+            $reportController = new ReportController();
+            $reportController->inventoryReport();
+            break;
+
+        case '/reports/generateInventoryPDF':
+            $reportController = new ReportController();
+            $reportController->generateInventoryPDF();
+            break;
+
+        case '/reports/customers':
+            $reportController = new ReportController();
+            $reportController->customerReport();
+            break;
+
+        case (preg_match('/^\/reports\/generateCustomerPDF\/(\d+)$/', $request, $matches) ? true : false):
+            $reportController = new ReportController();
+            $reportController->generateCustomerPDF($matches[1]);
+            break;
+
+        case '/reports/products':
+            $reportController = new ReportController();
+            $reportController->productPerformance();
+            break;
+
+        case '/reports/generateProductPerformancePDF':
+            $reportController = new ReportController();
+            $reportController->generateProductPerformancePDF();
+            break;
+
+        case '/reports/suppliers':
+            $reportController = new ReportController();
+            $reportController->supplierReport();
+            break;
+
+        case (preg_match('/^\/reports\/generateSupplierPDF\/(\d+)$/', $request, $matches) ? true : false):
+            $reportController = new ReportController();
+            $reportController->generateSupplierPDF($matches[1]);
             break;
 
         default:

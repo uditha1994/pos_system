@@ -41,7 +41,7 @@ function generateOrderPdf($order, $items) {
     
     foreach ($items as $item) {
         $pdf->Cell(80, 10, $item['product_name'], 1, 0);
-        $pdf->Cell(30, 10, number_format($item['price'], 2), 1, 0, 'R');
+        $pdf->Cell(30, 10, number_format($item['sell_price'], 2), 1, 0, 'R');
         $pdf->Cell(30, 10, $item['qty'], 1, 0, 'R');
         $pdf->Cell(50, 10, number_format($item['sub_total'], 2), 1, 1, 'R');
     }
@@ -54,7 +54,7 @@ function generateOrderPdf($order, $items) {
     // Footer
     $pdf->Ln(20);
     $pdf->SetFont('Arial', 'I', 10);
-    $pdf->Cell(0, 10, 'Thank you for your business!', 0, 1, 'C');
+    $pdf->Cell(0, 10, 'Thank you come again!!', 0, 1, 'C');
     
     return $pdf;
 }

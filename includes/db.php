@@ -3,11 +3,17 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Database configuration
+// local Database configuration
 $host = 'localhost:3306';
 $dbname = 'basic_pos';
 $username = 'root';
 $password = 'Uditha@321';
+
+//details for infinityfree
+// $host = 'sql108.infinityfree.com:3306';
+// $dbname = 'if0_38714667_basic_pos';
+// $username = 'if0_38714667';
+// $password = 'OIH9uglWm5';
 
 try {
     $conn = new PDO(
