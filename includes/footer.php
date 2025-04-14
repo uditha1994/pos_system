@@ -1,17 +1,32 @@
 </div>
+<br>
+<footer class="text-center text-lg-start"
+    style="background-color: rgb(48, 142, 219); padding-top: 1rem; padding-bottom: 0;">
+    <div class="container d-flex justify-content-center py-3">
+        <a href="https://github.com/uditha1994" class="btn btn-dark btn-floating mx-2 rounded-circle"
+            style="width: 40px; height: 40px;">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://github.com/uditha1994" class="btn btn-dark btn-floating mx-2 rounded-circle"
+            style="width: 40px; height: 40px;">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://github.com/uditha1994" class="btn btn-dark btn-floating mx-2 rounded-circle"
+            style="width: 40px; height: 40px;">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/uditha1994" class="btn btn-dark btn-floating mx-2 rounded-circle"
+            style="width: 40px; height: 40px;">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </div>
 
-<footer class="mt-5 py-3 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p class="mb-0">POS System &copy; <?= date('Y') ?></p>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <p class="mb-0">Version 1.0.0</p>
-            </div>
-        </div>
+    <div class="text-center text-white p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+        © <?php echo date('Y') ?> | Developed By :
+        <a class="text-white" href="https://github.com/uditha1994/pos_system">Uditha Landekumbura</a>
     </div>
 </footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/js/script.js"></script>

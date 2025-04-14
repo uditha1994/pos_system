@@ -17,6 +17,10 @@ class DashboardController
         $productCount = $this->pdo->query("SELECT COUNT(*) FROM product")->fetchColumn();
         $customerCount = $this->pdo->query("SELECT COUNT(*) FROM customer")->fetchColumn();
         $supplierCount = $this->pdo->query("SELECT COUNT(*) FROM supplier")->fetchColumn();
+        $userCount = $this->pdo->query("SELECT COUNT(*) FROM user")->fetchColumn();
+        $inventoryCount = $this->pdo->query("SELECT COUNT(*) FROM inventory")->fetchColumn();
+        $orderCount = $this->pdo->query("SELECT COUNT(*) FROM `order`")->fetchColumn();
+        $lowStockCount = $this->pdo->query("SELECT COUNT(*) FROM inventory WHERE quantity_added <= 5")->fetchColumn();
 
         // Get recent products (last 5 added)
         $recentProducts = $this->pdo->query("

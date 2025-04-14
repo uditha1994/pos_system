@@ -1,6 +1,6 @@
-<?php require_once __DIR__ . '/../includes/header.php'; ?>
 <?php require_once __DIR__ . '/../includes/auth.php'; ?>
 <?php authenticateUser(); ?>
+<?php require_once __DIR__ . '/../includes/header.php'; ?>
 
 <div class="container">
     <h1 class="my-4">POS System Dashboard</h1>
@@ -10,7 +10,7 @@
         <!-- Categories Card -->
         <div class="col-md-3 mb-4">
             <div class="card h-100">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h5 class="card-title">Categories</h5>
@@ -28,7 +28,7 @@
         <!-- Products Card -->
         <div class="col-md-3 mb-4">
             <div class="card h-100">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h5 class="card-title">Products</h5>
@@ -46,7 +46,7 @@
         <!-- Customers Card -->
         <div class="col-md-3 mb-4">
             <div class="card h-100">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h5 class="card-title">Customers</h5>
@@ -64,7 +64,7 @@
         <!-- Suppliers Card -->
         <div class="col-md-3 mb-4">
             <div class="card h-100">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h5 class="card-title">Suppliers</h5>
@@ -78,6 +78,64 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+        <!-- Users Card -->
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title">Users</h5>
+                            <h2 class="mb-0"><?= $userCount ?></h2>
+                        </div>
+                        <span class="badge bg-purple rounded-circle p-3">
+                            <i class="fas fa-user-shield fa-2x"></i>
+                        </span>
+                    </div>
+                    <a href="<?= BASE_PATH ?>/users" class="btn btn-sm btn-purple mt-3">Manage Users</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Card -->
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title">Inventory</h5>
+                            <h2 class="mb-0"><?= $inventoryCount ?></h2>
+                            <small class="text-muted"><?= $lowStockCount ?> low stock</small>
+                        </div>
+                        <span class="badge bg-orange rounded-circle p-3">
+                            <i class="fas fa-box-open fa-2x"></i>
+                        </span>
+                    </div>
+                    <a href="<?= BASE_PATH ?>/inventory" class="btn btn-sm btn-orange mt-3">View Inventory</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Card -->
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title">Orders</h5>
+                            <h2 class="mb-0"><?= $orderCount ?></h2>
+                        </div>
+                        <span class="badge bg-danger rounded-circle p-3">
+                            <i class="fas fa-clipboard-list fa-2x"></i>
+                        </span>
+                    </div>
+                    <a href="<?= BASE_PATH ?>/orders" class="btn btn-sm btn-danger mt-3">View Orders</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Quick Actions Row -->
@@ -100,6 +158,9 @@
                         </a>
                         <a href="<?= BASE_PATH ?>/suppliers/create" class="btn btn-outline-info">
                             <i class="fas fa-truck-loading me-2"></i> Add New Supplier
+                        </a>
+                        <a href="<?= BASE_PATH ?>/orders/create" class="btn btn-outline-warning">
+                            <i class="fas fa-clipboard-list me-2"></i> Add New Order
                         </a>
                     </div>
                 </div>

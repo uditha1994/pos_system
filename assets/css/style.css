@@ -59,6 +59,32 @@
     height: 300px;
 }
 
+/* Custom colors for dashboard cards */
+.bg-purple {
+    background-color: #6f42c1 !important;
+}
+.btn-purple {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+    color: white;
+}
+.bg-orange {
+    background-color: #fd7e14 !important;
+}
+.btn-orange {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+    color: white;
+}
+.bg-teal {
+    background-color: #20c997 !important;
+}
+.btn-teal {
+    background-color: #20c997;
+    border-color: #20c997;
+    color: white;
+}
+
 /* Select2 styling */
 .select2-container .select2-selection--single {
     height: calc(1.5em + 0.75rem + 2px);
