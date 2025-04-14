@@ -1,7 +1,8 @@
 </div>
-<br>
+</main>
+
 <footer class="text-center text-lg-start"
-    style="background-color: rgb(48, 142, 219); padding-top: 1rem; padding-bottom: 0;">
+    style="">
     <div class="container d-flex justify-content-center py-3">
         <a href="https://github.com/uditha1994" class="btn btn-dark btn-floating mx-2 rounded-circle"
             style="width: 40px; height: 40px;">

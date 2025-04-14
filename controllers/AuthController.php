@@ -10,6 +10,7 @@ class AuthController {
     }
 
     public function login() {
+        $title = 'Login';
         require_once __DIR__ . '/../views/auth/login.php';
     }
 

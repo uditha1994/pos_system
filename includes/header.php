@@ -10,8 +10,8 @@
     <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <i class="fas fa-cash-register me-2"></i>POS System
@@ -83,35 +83,43 @@
                             </li>
                         </ul>
                     </li>
-
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown">
-                                <i class="fas fa-user-circle me-1"></i>
-                                <?= htmlspecialchars($_SESSION['full_name']) ?> (<?= $_SESSION['role'] ?>)
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown">
+                                <span class="user-avatar">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <div class="d-flex flex-column">
+                                    <span style="font-size: 0.7rem"><?= htmlspecialchars($_SESSION['full_name']) ?></span>
+                                    <small style="font-size: 0.7rem" class="text-white-50"><?= $_SESSION['role'] ?></small>
+                                </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item"
-                                        href="<?= BASE_PATH ?>/users/edit/<?= $_SESSION['user_id'] ?>">My
-                                        Profile</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_PATH ?>/users/edit/<?= $_SESSION['user_id'] ?>">
+                                        <i class="fas fa-user-edit me-2"></i>My Profile
+                                    </a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="<?= BASE_PATH ?>/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_PATH ?>/logout">
+                                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                    </a></li>
                             </ul>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= BASE_PATH ?>/login">Login</a>
+                            <a class="nav-link btn btn-outline-light px-3" href="<?= BASE_PATH ?>/login">
+                                <i class="fas fa-sign-in-alt me-1"></i> Login
+                            </a>
                         </li>
                     <?php endif; ?>
                 </ul>
             </div>
         </div>
-        </div>
     </nav>
 
-    <div class="container mt-4">
+    <main class="flex-grow-1">
+        <div class="container mt-4">
