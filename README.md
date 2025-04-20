@@ -1,7 +1,6 @@
 # Point of Sale (POS) System
 
 ![POS System Screenshot](https://via.placeholder.com/800x400?text=POS+System+Screenshot)  
-*(Replace with actual screenshot)*
 
 ## 📋 Overview
 A simple yet powerful Point of Sale (POS) system built using PHP, MySQL, and Bootstrap. This application follows the Model-View-Controller (MVC) architecture for clean code organization and maintainability.
@@ -42,6 +41,7 @@ A simple yet powerful Point of Sale (POS) system built using PHP, MySQL, and Boo
    cd pos_system
 
 2. **Create database**:
+```bash
 CREATE DATABASE pos_system;
 
 3. **Import database schema**:
@@ -50,6 +50,7 @@ Import it to your MySQL database
 
 4. **Configure database connection**:
 Edit the configuration file at includes/db.php with your database credentials:
+```bash
 define('DB_HOST', 'localhost');
 define('DB_USER', 'your_username');
 define('DB_PASS', 'your_password');
@@ -61,4 +62,5 @@ Ensure mod_rewrite is enabled for clean URLs
 
 6. **Access the application**:
 Open your browser and navigate to:
+```bash
 http://localhost/pos_system/public
