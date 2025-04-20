@@ -64,3 +64,17 @@ A simple yet powerful Point of Sale (POS) system built using PHP, MySQL, and Boo
    Open your browser and navigate to:
    ```bash
    http://localhost/pos_system/public
+
+🤝 Contributing
+   Fork the repository
+
+   1. Create your feature branch (git checkout -b feature/your-feature)
+   2. Commit your changes (git commit -am 'Add some feature')
+   3. Push to the branch (git push origin feature/your-feature)
+   4. Open a Pull Request
+
+📜 License
+   This project is open-source and available under the MIT License.
+
+❓ Support
+   For any questions or issues, please open an issue on GitHub.
