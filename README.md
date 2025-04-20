@@ -41,26 +41,26 @@ A simple yet powerful Point of Sale (POS) system built using PHP, MySQL, and Boo
    cd pos_system
 
 2. **Create database**:
-```bash
-CREATE DATABASE pos_system;
+   ```bash
+   CREATE DATABASE pos_system;
 
 3. **Import database schema**:
-Locate the SQL file in the database folder
-Import it to your MySQL database
+   Locate the SQL file in the database folder
+   Import it to your MySQL database
 
 4. **Configure database connection**:
-Edit the configuration file at includes/db.php with your database credentials:
-```bash
-define('DB_HOST', 'localhost');
-define('DB_USER', 'your_username');
-define('DB_PASS', 'your_password');
-define('DB_NAME', 'pos_system');
-Set up the web server:
+   Edit the configuration file at includes/db.php with your database credentials:
+   ```bash
+   define('DB_HOST', 'localhost');
+   define('DB_USER', 'your_username');
+   define('DB_PASS', 'your_password');
+   define('DB_NAME', 'pos_system');
+   Set up the web server:
 
 5. **Point your web server to the public directory**
-Ensure mod_rewrite is enabled for clean URLs
+   Ensure mod_rewrite is enabled for clean URLs
 
 6. **Access the application**:
-Open your browser and navigate to:
-```bash
-http://localhost/pos_system/public
+   Open your browser and navigate to:
+   ```bash
+   http://localhost/pos_system/public
